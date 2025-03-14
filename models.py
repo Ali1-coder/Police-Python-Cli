@@ -22,6 +22,13 @@ class Badge(Base):
 
     officer = relationship('Officer', back_populates='badge')
 
+case_suspects = Table(
+    'case_suspects', Base.metadata,
+    Column('case_id', Integer, ForeignKey('cases.id'), primary_key=True),
+    Column('suspect_id', Integer, ForeignKey('suspects.id'), primary_key=True)
+)
+
+
 class Case(Base):
     __tablename__ = 'cases'
     id = Column(Integer, primary_key=True)
@@ -30,6 +37,7 @@ class Case(Base):
     officer_id = Column(Integer, ForeignKey('officers.id'))
     
     officer = relationship("Officer", back_populates="cases")
+    suspects = relationship("Suspect", secondary=case_suspects, back_populates="cases")
     
 
 class Suspect(Base):
@@ -37,6 +45,8 @@ class Suspect(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     address = Column(String)
+
+    cases = relationship("Case", secondary=case_suspects, back_populates="suspects")
 
 class Motorbike(Base):
     __tablename__ = 'motorbikes'
