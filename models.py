@@ -22,3 +22,10 @@ class Suspect(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     address = Column(String)
+
+class Motorbike(Base):
+    __tablename__ = 'motorbikes'
+    id = Column(Integer, primary_key=True)
+    registration_number = Column(String, unique=True)
+    model = Column(String)
+    status = Column(String, default='Available')
