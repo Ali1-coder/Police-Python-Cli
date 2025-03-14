@@ -16,3 +16,9 @@ class Case(Base):
     id = Column(Integer, primary_key=True)
     case_no = Column(String, unique=True)
     details = Column(String)
+
+class Suspect(Base):
+    __tablename__ = 'suspects'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    address = Column(String)
