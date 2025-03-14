@@ -30,8 +30,8 @@ Before running the application, ensure you have the following installed:
 ## SETUP
 1. Clone the Repository:
 ```bash
-git clone https://github.com/your-username/police-station-cli.git
-cd police-station-cli
+git clone https://github.com/Ali1-coder/Police-Python-Cli.git
+cd police-python-cli
 ```
 2. Install packages:
 ```bash
