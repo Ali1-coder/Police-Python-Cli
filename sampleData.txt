@@ -1,0 +1,55 @@
+*OFFICERS*
+Name: John Doe
+Rank: Sergeant
+
+Name: Jane Smith
+Rank: Lieutenant
+
+Name: Mike Johnson
+Rank: Captain
+
+*Badges*
+Badge Number: 12345
+Officer ID: 1
+
+Badge Number: 67890
+Officer ID: 2
+
+Badge Number: 54321
+Officer ID: 3
+
+*Cases*
+Case No: CASE001
+Details: Stolen vehicle
+Officer ID: 1
+
+Case No: CASE002
+Details: Burglary at 123 Main St
+Officer ID: 2
+
+Case No: CASE003
+Details: Assault at Central Park
+Officer ID: 3
+
+*Suspects*
+Name: Alice Brown
+Address: 456 Elm St
+
+Name: Bob Green
+Address: 789 Oak St
+
+Name: Charlie White
+Address: 321 Pine St
+
+*Motorbikes*
+Registration Number: MOTO001
+Model: Harley-Davidson
+Officer ID: 1
+
+Registration Number: MOTO002
+Model: Yamaha
+Officer ID: 2
+
+Registration Number: MOTO003
+Model: Kawasaki
+Officer ID: 3
