@@ -9,7 +9,12 @@ class Officer(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     rank = Column(String)
-    badge_no=Column(Integer)
+
+class Badge(Base):
+    __tablename__ = 'badges'
+    id = Column(Integer, primary_key=True)
+    badge_number = Column(String, unique=True)
+    officer_id = Column(Integer, ForeignKey('officers.id'), unique=True) 
 
 class Case(Base):
     __tablename__ = 'cases'
