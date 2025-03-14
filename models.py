@@ -65,3 +65,6 @@ class Motorbike(Base):
     # A motorbike is assigned to one officer.
     assigned_officer = relationship("Officer", back_populates="motorbike")
 
+DATABASE_URL = "sqlite:///police_station.db"
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(bind=engine)
