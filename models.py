@@ -12,6 +12,7 @@ class Officer(Base):
 
     badge = relationship("Badge", back_populates="officer", uselist=False)
     motorbike = relationship("Motorbike", back_populates="assigned_officer", uselist=False)
+    cases=relationship('Case',back_populates='officer')
 
 class Badge(Base):
     __tablename__ = 'badges'
@@ -26,6 +27,9 @@ class Case(Base):
     id = Column(Integer, primary_key=True)
     case_no = Column(String, unique=True)
     details = Column(String)
+    officer_id = Column(Integer, ForeignKey('officers.id'))
+    
+    officer = relationship("Officer", back_populates="cases")
     
 
 class Suspect(Base):
