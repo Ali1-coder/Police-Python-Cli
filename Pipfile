@@ -1,0 +1,16 @@
+
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+sqlalchemy = "2.0.29"                        
+alembic = "1.13.1"            
+prompt-toolkit = "3.0.43"     
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
+
