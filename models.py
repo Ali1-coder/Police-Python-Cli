@@ -64,3 +64,4 @@ class Motorbike(Base):
 
     # A motorbike is assigned to one officer.
     assigned_officer = relationship("Officer", back_populates="motorbike")
+
