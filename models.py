@@ -10,3 +10,9 @@ class Officer(Base):
     name = Column(String)
     rank = Column(String)
     badge_no=Column(Integer)
+
+class Case(Base):
+    __tablename__ = 'cases'
+    id = Column(Integer, primary_key=True)
+    case_no = Column(String, unique=True)
+    details = Column(String)
