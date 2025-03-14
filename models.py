@@ -6,10 +6,13 @@ class Base(DeclarativeBase):
 
 class Officer(Base):
     __tablename__='officers'
+
+    
     id = Column(Integer, primary_key=True)
     name = Column(String)
     rank = Column(String)
 
+    # One officer can have one badge, one motorbike, and can handle many cases.
     badge = relationship("Badge", back_populates="officer", uselist=False)
     motorbike = relationship("Motorbike", back_populates="assigned_officer", uselist=False)
     cases=relationship('Case',back_populates='officer')
@@ -19,7 +22,8 @@ class Badge(Base):
     id = Column(Integer, primary_key=True)
     badge_number = Column(String, unique=True)
     officer_id = Column(Integer, ForeignKey('officers.id'), unique=True) 
-
+    
+    # A badge belongs to one officer.
     officer = relationship('Officer', back_populates='badge')
 
 case_suspects = Table(
@@ -36,6 +40,7 @@ class Case(Base):
     details = Column(String)
     officer_id = Column(Integer, ForeignKey('officers.id'))
     
+    # A case is handled by one officer and can have many suspects.
     officer = relationship("Officer", back_populates="cases")
     suspects = relationship("Suspect", secondary=case_suspects, back_populates="cases")
     
@@ -45,7 +50,8 @@ class Suspect(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     address = Column(String)
-
+    
+    # A suspect can be involved in many cases.
     cases = relationship("Case", secondary=case_suspects, back_populates="suspects")
 
 class Motorbike(Base):
@@ -56,5 +62,5 @@ class Motorbike(Base):
     status = Column(String, default='Available')
     officer_id = Column(Integer, ForeignKey('officers.id'))
 
-
+    # A motorbike is assigned to one officer.
     assigned_officer = relationship("Officer", back_populates="motorbike")
